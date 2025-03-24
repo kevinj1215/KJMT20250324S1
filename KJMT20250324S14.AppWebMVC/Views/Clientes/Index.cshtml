@@ -48,12 +48,12 @@
 
     <div class="row">
         <div class="form-group mt-3">
-            <a asp-action="Create" class="btn btn-dark">Crear cliente</a>
+            <a asp-action="Create" class="btn btn-dark">Crear cliente <i class="bi bi-clipboard"></i></a>
             <input type="submit" value="Buscar" class="btn btn-primary" />
         </div>
     </div>
 </form>
-<table class="table">
+<table class="table" id="myTable">
     <thead>
         <tr>
             <th>
@@ -90,13 +90,13 @@
                     <table>
                         <tr>
                             <tb>
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success" title="Editar">Editar</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success" title="Editar">Editar<i class="bi bi-pencil"></i></a>
                             </tb>
                             <tb>
                                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info" title="detalle"> Detalle<i class="bi bi-eye"></i></a>
                             </tb>
                             <tb>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" title="borrar">Borrar</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" title="borrar">Borrar<i class="bi bi-trash"></i></a>
                             </tb>
                         </tr>
                     </table>
@@ -105,3 +105,14 @@
 }
     </tbody>
 </table>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                 "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                }
+            });
+        });
+    </script>
+}

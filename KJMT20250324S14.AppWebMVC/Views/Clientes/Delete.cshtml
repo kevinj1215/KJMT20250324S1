@@ -39,7 +39,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success" title="detalle">Editar</a>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-danger" title="detalle">Editar<i class="bi bi-trash"></i></a>
         <a asp-action="Index" class="btn btn-info" title="Cancelar">Cancelar</a>
     </form>
 </div>
