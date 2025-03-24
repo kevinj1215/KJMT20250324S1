@@ -2,13 +2,57 @@
 
 @{
     ViewData["Title"] = "Index";
+    var @modelBuscar = new Cliente();
 }
 
 <h1>Index</h1>
+<form asp-action="Index">
+    <div class="row">
+        <div class="form-group col-4">
+            <label asp-for="@modelBuscar.Nombre" class="control-label"></label>
+            <input name="Nombre" class="form-control" />
+        </div>
+        <div class="form-group col-4">
+            <label asp-for="@modelBuscar.Telefono" class="control-label"></label>
+            <input name="Telefono" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-9">
+            <label asp-for="@modelBuscar.Direccion" class="control-label"></label>
+            <input name="Direccion" class="form-control" />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-9">
+            <label asp-for="@modelBuscar.Email" class="control-label"></label>
+            <textarea name="Email" class="form-control"></textarea>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-3">
+            <label>Cant. Reg</label>
+            <select name="topReistros" class="form-control">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="500">500</option>
+                <option value="0">Todos</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group mt-3">
+            <a asp-action="Create" class="btn btn-dark">Crear cliente</a>
+            <input type="submit" value="Buscar" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -42,11 +86,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+                <td>
+                    <table>
+                        <tr>
+                            <tb>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success" title="Editar">Editar</a>
+                            </tb>
+                            <tb>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info" title="detalle"> Detalle<i class="bi bi-eye"></i></a>
+                            </tb>
+                            <tb>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" title="borrar">Borrar</a>
+                            </tb>
+                        </tr>
+                    </table>
+                </td>
         </tr>
 }
     </tbody>
