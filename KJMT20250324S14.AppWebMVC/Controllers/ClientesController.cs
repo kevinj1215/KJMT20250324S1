@@ -19,7 +19,7 @@ namespace KJMT20250324S14.AppWebMVC.Controllers
         }
 
         // GET: Clientes
-        public async Task<IActionResult> Index(Cliente cliente, int topReistros = 10)
+        public async Task<IActionResult> Index(Cliente cliente, int topReistros = 25)
         {
             var query = _context.Clientes.AsQueryable();
             if (!string.IsNullOrWhiteSpace(cliente.Nombre))
